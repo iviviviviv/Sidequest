@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BERANI - Petualangan</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      const target = document.getElementById(pageId);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo(0, 0);
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Halaman Awal -->
+  <div id="halaman-awal" class="page active">
+    <div class="container">
+      <h1>Selamat Datang di Dunia BERANI!</h1>
+      <p class="subtitle">SMANLI Zero Plagiarisme: Berpikir Kritis, Berkarya Autentik!</p>
+      
+      <div class="message-container">
+        <!-- Nara's Message (Left Side) -->
+        <div class="message-row message-left">
+          <img src="BERANI/Nara.png" alt="Karakter Nara" class="character-img">
+          <div class="chat-bubble chat-bubble-left">
+            "Hai! Aku Nara — partner setiamu di petualangan ide orisinal. Siap bikin karya tanpa copas dan penuh kreativitas? Ayo klik 'Mulai' dan kita berangkat!"
+          </div>
+        </div>
+      
+        <!-- Rory's Message (Right Side) -->
+        <div class="message-row message-right">
+          <div class="chat-bubble chat-bubble-right">
+            "Halo Aku Rory"
+          </div>
+          <img src="BERANI/Ory.jpg" alt="Karakter Rory" class="character-img character-img-right">
+        </div>
+      </div>
+
+      <button class="primary-btn" onclick="showPage('halaman-b')">Mulai Petualangan</button>
+    </div>
+  </div>
+
+  <!-- Halaman B -->
+  <div id="halaman-b" class="page">
+    <div class="container">
+      <h1>B: Berpikir Orisinal</h1>
+      <p class="subtitle">Yuk mulai mencari sendiri... apa yang ingin kamu ketahui hari ini?</p>
+      
+      <div class="character-section">
+        <img src="BERANI/Nara.png" alt="Karakter Nara" class="character-img">
+        <div class="chat-bubble">
+          "Langkah pertama jadi peneliti keren: pilih topik yang spesifik! Bukan cuma 'lingkungan', tapi coba 'pencemaran lingkungan di kota X'!"
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="input-group">
+          <label>Pilih bidang:</label>
+          <div class="button-group">
+            <button class="secondary-btn">Ekonomi</button>
+            <button class="secondary-btn">Geografi</button>
+            <button class="secondary-btn">Sosiologi</button>
+            <button class="secondary-btn">Sejarah</button>
+          </div>
+        </div>
+        
+        <div class="input-group">
+          <form action="https://www.google.com/search" method="GET" target="_blank" id="searchForm">
+            <input 
+              type="text" 
+              name="q" 
+              placeholder="Ketik tema yang kamu inginkan! Pastikan untuk spesifik ya" 
+              class="text-input"
+              required
+            >
+            <div class="hint-box">
+              ❌ Lingkungan<br>
+              ✅ Pencemaran lingkungan
+            </div>
+            <input type="hidden" name="ie" value="UTF-8">
+            <input type="hidden" name="oe" value="UTF-8">
+            <input type="hidden" name="source" value="hp">
+            <button type="submit" style="display:none"></button>
+          </form>
+        </div>
+      
+        <div class="result-box">
+          <p>🔍 Hasil Pencarian (simulasi):</p>
+          <div class="journal-item">
+            🌐 <strong>Jurnal: Polusi Udara Kota X</strong><br>
+            <button class="read-btn">Baca</button>
+            <button class="select-btn">Pilih</button>
+          </div>
+          <div class="journal-item">
+            🌐 <strong>Studi Kasus Sampah di Sungai Y</strong><br>
+            <button class="read-btn">Baca</button>
+            <button class="select-btn">Pilih</button>
+          </div>
+        </div>
+        
+        <p class="quote">"Ilmu hari ini adalah teknologi masa depan." –Akmal</p>
+        <button class="next-btn" onclick="showPage('halaman-e')">Selanjutnya</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Halaman E -->
+  <div id="halaman-e" class="page">
+    <div class="container">
+      <h1>E: Eksplorasi Ide Sendiri</h1>
+      <p class="subtitle">Mari berpetualang di dunia ide kamu sendiri!</p>
+      
+      <div class="character-section">
+        <img src="BERANI/Nara.png" alt="Karakter Nara" class="character-img">
+        <div class="chat-bubble">
+          "Sekarang giliran kamu! Tempel link jurnal pilihanmu, lalu mulai bikin latar belakang tulisanmu sendiri. Tulis pakai kata-katamu ya!"
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="input-group">
+          <label for="link-jurnal">📎 Tempel Link Jurnal:</label>
+          <input type="url" id="link-jurnal" placeholder="Tempel link jurnal yang kamu pilih tadi di sini..." class="text-input" required>
+        </div>
+        
+        <div class="input-group">
+          <label for="latar-belakang">📝 Latar Belakang Tulisan:</label>
+          <textarea id="latar-belakang" placeholder="Tulis latar belakang karya tulismu..." class="text-area"></textarea>
+        </div>
+        
+        <button class="primary-btn" onclick="submitEksplorasi()">Submit</button>
+      </div>
+      
+      <div class="quote-box">
+        "Kamu tak akan pernah melakukan apa-apa di dunia ini tanpa keberanian. Itu adalah kualitas terbesar dari pikiran setelah kehormatan." – Aristoteles
+      </div>
+      
+      <button class="primary-btn" onclick="showPage('halaman-r')">Selanjutnya</button>
+    </div>
+  </div>
+
+  <!-- Halaman R -->
+  <div id="halaman-r" class="page">
+    <div class="container">
+      <h1>R: Riset yang Jujur</h1>
+      
+      <div class="character-section">
+        <img src="BERANI/Nara.png" alt="Karakter Nara" class="character-img">
+        <div class="chat-bubble">
+          "Yuk kita pilih jenis risetmu — kuantitatif atau kualitatif? Setelah itu cari data yang bisa mendukung idemu. Jangan asal copas ya, harus paham juga isinya!" – <strong>Nara</strong>
+        </div>
+      </div>
+      
+      <div class="form-section">
+        <div class="input-group">
+          <label>Pilih Jenis Riset:</label>
+          <div class="button-group">
+            <button class="secondary-btn" onclick="selectType('Kuantitatif')">Kuantitatif</button>
+            <button class="secondary-btn" onclick="selectType('Kualitatif')">Kualitatif</button>
+          </div>
+        </div>
+        
+        <!-- Google Search Integration -->
+        <div class="input-group">
+          <form action="https://www.google.com/search" method="GET" target="_blank" class="google-search-form">
+            <input 
+              type="text" 
+              name="q" 
+              placeholder="Cari data penelitian di Google..." 
+              class="text-input"
+              required
+            >
+            <input type="hidden" name="ie" value="UTF-8">
+            <input type="hidden" name="oe" value="UTF-8">
+            <div class="search-buttons">
+              <button type="submit" class="search-btn">
+                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_92x30dp.png" alt="Google" class="google-logo">
+                <span>Cari</span>
+              </button>
+              <button type="button" class="advanced-btn" onclick="showAdvancedTips()">
+                Tips Pencarian
+              </button>
+            </div>
+          </form>
+        </div>
+        
+        <div id="results" class="result-box"></div>
+        
+        <div class="input-group">
+          <textarea id="dataInput" placeholder="Tempel data yang kamu pilih di sini..." class="text-area"></textarea>
+          <button class="primary-btn" onclick="saveData()">Simpan Data</button>
+        </div>
+      </div>
+      
+      <div class="quote-box">
+        "Dengan pengumpulan data, 'semakin cepat semakin baik' selalu menjadi jawaban terbaik." — Marissa Mayer
+      </div>
+      
+      <button class="primary-btn" onclick="showPage('halaman-a')">Selanjutnya</button>
+    </div>
+  </div>
+
+  <!-- Halaman A -->
+  <div id="halaman-a" class="page">
+    <div class="container">
+      <h1>A: Akui Sumber</h1>
+      
+      <div class="character-section">
+        <img src="BERANI/Nara.png" alt="Karakter Nara" class="character-img">
+        <div class="chat-bubble">
+          "Sekarang giliran kamu! Tempel link jurnal pilihanmu, lalu mulai bikin latar belakang tulisanmu sendiri. Tulis pakai kata-katamu ya!"
+        </div>
+      </div>
+      
+      <div class="form-section">
+        <div class="input-group">
+          <label for="quoteInput">Kutipan:</label>
+          <textarea id="quoteInput" placeholder="Tulis kutipanmu di sini, misalnya: 'Menurut Budi (2020), penting untuk...'" class="text-area"></textarea>
+        </div>
+        
+        <div class="input-group">
+          <label for="sourceInput">Daftar Pustaka:</label>
+          <textarea id="sourceInput" placeholder="Tulis sumbernya, misalnya: Budi, A. (2020). Judul Buku. Penerbit." class="text-area"></textarea>
+        </div>
+        
+        <button class="primary-btn" onclick="addReference()">Tambah Referensi</button>
+      </div>
+      
+      <div class="reference-box">
+        <h3>📚 Daftar Referensi:</h3>
+        <ul id="refItems"></ul>
+      </div>
+      
+      <div class="quote-box">
+        "Acknowledging the ideas of others is the beginning of true originality." – Unknown
+      </div>
+      
+      <button class="primary-btn" onclick="showPage('halaman-n')">Selanjutnya</button>
+    </div>
+  </div>
+
+  <!-- Halaman N -->
+  <div id="halaman-n" class="page">
+    <div class="container">
+      <h1>N: Nikmati Proses Kreatif</h1>
+      
+      <div class="character-section">
+        <img src="BERANI/Nara.png" alt="Karakter Nara" class="character-img">
+        <div class="chat-bubble">
+          "Kamu gak akan tahu hasilnya kalau belum mulai nulis. Yuk, pilih bagian yang ingin kamu kerjakan dulu. Tapi ingat: satu bagian satu waktu, ya!"
+        </div>
+      </div>
+
+      <div class="tab-container">
+        <div class="tab-buttons">
+          <button class="tab-btn active" onclick="selectTab('teori')">📘 Teori</button>
+          <button class="tab-btn" onclick="selectTab('metodologi')">🔬 Metodologi</button>
+          <button class="tab-btn" onclick="selectTab('masalah')">⚠️ Uraian Masalah</button>
+          <button class="tab-btn" onclick="selectTab('solusi')">💡 Dampak & Solusi</button>
+        </div>
+        
+        <div class="tab-content">
+          <textarea id="textArea" placeholder="Pilih tab dan mulai menulis di sini..." class="text-area"></textarea>
+          <button class="primary-btn" onclick="saveSection()">Simpan Bagian</button>
+        </div>
+      </div>
+      
+      <div class="quote-box">
+        "Setiap kemajuan besar dalam sains telah lahir dari keberanian imajinasi yang baru." – John Dewey
+      </div>
+      
+      <button class="primary-btn" onclick="showPage('halaman-i')">Selanjutnya</button>
+    </div>
+  </div>
+
+  <!-- Halaman I -->
+  <div id="halaman-i" class="page">
+    <div class="container">
+      <h1>I: Integritas dalam Berkarya</h1>
+      
+      <div class="character-section">
+        <img src="BERANI/Nara.png" alt="Karakter Nara" class="character-img">
+        <div class="chat-bubble">
+          "Selamat! Kamu sudah sampai di akhir perjalanan. Sekarang... mari kita uji keaslian karya kamu!"
+        </div>
+      </div>
+
+      <div class="check-section">
+        <p>Cek orisinalitas karyamu lewat tautan berikut:</p>
+        <a href="https://www.paraphraser.io/id/cek-plagiarisme" target="_blank" class="external-link">
+          🔍 Cek di Paraphraser.io
+        </a>
+      </div>
+      
+      <button class="primary-btn" onclick="showCongratulations()">Selesai</button>
+      
+      <div id="congrats" class="hidden">
+        <div class="confetti">🎉🎉🎉</div>
+        <h2>Selamat, kamu berhasil membuat karya sendiri!</h2>
+        <p><strong>SMANLI Zero Plagiarisme:</strong> Berpikir Kritis, Berkarya Autentik!</p>
+        <div class="quote-box">
+          "Jika Anda menyalin dari satu penulis, itu plagiarisme. Jika Anda menyalin dari dua penulis, itu namanya penelitian." – Wilson Mizner
+        </div>
+      </div>
+      
+      <button class="primary-btn" onclick="showPage('halaman-akhir')">Lanjut</button>
+    </div>
+  </div>
+
+  <!-- Halaman Akhir -->
+  <div id="halaman-akhir" class="page">
+    <div class="ending-container">
+      <div class="ending-header">
+        <div class="character-silhouette"></div>
+        <h1>Perjalananmu Bersama BERANI Telah Selesai!</h1>
+        <p class="subtitle">Tapi ingat... berpikir orisinal itu bukan akhir, melainkan awal dari karya hebatmu selanjutnya!</p>
+      </div>
+      
+      <div class="ending-content">
+        <div class="journey-steps">
+          <p>Kamu telah melalui:</p>
+          <ul>
+            <li>B – Berpikir Orisinal</li>
+            <li>E – Eksplorasi Ide Sendiri</li>
+            <li>R – Riset yang Jujur</li>
+            <li>A – Akui Sumber Inspirasi</li>
+            <li>N – Nikmati Proses Kreatif</li>
+            <li>I – Integritas dalam Berkarya</li>
+          </ul>
+          <div class="movement">SMANLI Zero Plagiarisme Movement</div>
+          <div class="quote-box">
+            "Bukan tentang siapa yang paling cepat, tapi siapa yang paling jujur dan kreatif."
+          </div>
+        </div>
+      </div>
+      
+      <div class="ending-actions">
+        <button class="primary-btn" onclick="startNew()">✨ Mulai Karya Baru</button>
+        <button class="secondary-btn" onclick="exitGame()">👋 Keluar dari BERANI</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
